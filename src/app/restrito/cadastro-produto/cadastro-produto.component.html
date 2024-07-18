@@ -1,0 +1,60 @@
+<main>
+<h1>
+    Cadastrar jogo
+</h1>
+<section id="section-cadastro">
+
+<form>
+    <div class="col-auto">
+
+    <label for="produto">Nome do Produto</label>
+    
+<input type="text" class="form-control" name="produto"[(ngModel)] = "produto.produto">
+
+    </div>
+
+<br>
+    <div class="col-auto">
+
+    
+    <label for="descricao">Descricao</label>
+        <input type="text" class="form-control" name="descricao"[(ngModel)] = "produto.descricao">
+    </div>
+        <br>
+        <div class="col-auto">
+
+        <label for="foto" class="Foto"></label>
+            <input type="text" class="form-control" name="foto" [(ngModel)] = "produto.foto">
+        </div>
+    <br>
+    <div class="col-auto">
+
+            <label for="Preco">Preco</label>
+            <input type="number" class="form-control" name="preco" [(ngModel)] = "produto.preco">
+    </div>
+    <br>
+
+    <div class="col-auto">
+        <button  type="button" class="btn btn-primary mb-3" (click)="Cadastrar"></button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <br>
+        <button type="button" class="btn btn-primary mb-3">Cadastrar</button>
+
+
+</form>
+
+</section>
+
+</main>

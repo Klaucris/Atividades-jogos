@@ -1,17 +1,17 @@
-.example-spacer {
-    flex: 1 1 auto;
+main{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  
+  }
+  #section-login{
+    height: 100%;
+    width: 400px;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    margin-top: 50px;
   }
 
-span{
-    padding: 10px;
-}
 
-  img{
-    height: 50px;
-    width: 50px;  
-  }
-
-  a{
-    text-decoration: none;
-    color: black;
-  }
+  
