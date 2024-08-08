@@ -23,7 +23,7 @@ export class CadastroProdutoComponent implements OnInit {
   },
   err =>{
     alert("erro ao cadastrar")
-  }
+  },
     );
 
     this.router.navigate(["/restrito/lista"]);

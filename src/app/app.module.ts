@@ -26,9 +26,15 @@ import { RestritoComponent } from './restrito/restrito.component';
 import { AtualizaProdutoComponent } from './restrito/atualiza-produto/atualiza-produto.component';
 import { CadastroProdutoComponent } from './restrito/cadastro-produto/cadastro-produto.component';
 import { ListaProdutoComponent } from './restrito/lista-produto/lista-produto.component';
+import { MatTableModule} from 'angular/material/toolbar';
+
+
 
 
 import { MenuRestritoComponent } from '..restrito/menu-restrito/MenuRestritoComponent';
+import { AtualizarClienteComponent } from './atualizar-cliente/atualizar-cliente.component';
+import { CadastrarClienteComponent } from './cadastrar-cliente/cadastrar-cliente.component';
+import { ListrarClienteComponent } from './listrar-cliente/listrar-cliente.component';
 
 
 @NgModule({
@@ -43,7 +49,10 @@ import { MenuRestritoComponent } from '..restrito/menu-restrito/MenuRestritoComp
     AtualizaProdutoComponent,
     CadastroProdutoComponent,
     ListaProdutoComponent,
-    MenuRestritoComponent
+    MenuRestritoComponent,
+    AtualizarClienteComponent,
+    CadastrarClienteComponent,
+    ListrarClienteComponent
   ],
   imports: [
     BrowserModule,

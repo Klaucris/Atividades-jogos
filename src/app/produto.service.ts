@@ -13,7 +13,7 @@ export class ProdutoService {
   private url = "http://localhost:3000/produtos";
 
   constructor( private _httpClient: HttpClient) { }
-  getProduto(id:any): Observable<Produto> {
+  getProdutos(id:any): Observable<Produto> {
     const urlAtualizar = '${this.url}?id=${id}';
     return this._httpClient.get<Produto>(urlAtualizar);
 

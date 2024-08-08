@@ -1,6 +1,6 @@
  import { Component } from '@angular/core';
 import { Router} from '@angular/router';
-import { Produto} from '../src/app/models/produto.model';
+import { Produto} from '../src/models/Produto.models';
 import { ProdutoService } from 'src/app/produto.service';
 
 @Component({
@@ -38,14 +38,22 @@ excluir(id: number){
   this._produtoService.removerProduto(id).subscribe(
     produto => {
       this.listarProdutos();
-    }
-    err => {console.log("erro ao excluir") }
+    },
+    err => {alert ("erro ao excluir")}
     
-  );
+      
+    } 
+  )
+};
 
   //window.location.href = "/restrito/lista";
-  this.router.navigate(["/restrito/lista"]);
-        
-  }
+  this._router.navigate(["/restrito/lista"])
 
 }
+
+
+
+        
+  
+
+

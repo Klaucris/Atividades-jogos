@@ -1,3 +1,14 @@
+a{
+   text-decoration: none;
+   padding:10px;
+
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+
 main{
   display: flex;
   justify-items: center;
