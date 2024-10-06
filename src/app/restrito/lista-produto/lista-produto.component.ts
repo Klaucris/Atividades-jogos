@@ -43,7 +43,7 @@ excluir(id: number){
     
       
     } 
-  )
+}
 };
 
   //window.location.href = "/restrito/lista";
