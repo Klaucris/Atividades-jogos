@@ -17,7 +17,7 @@ export class ListaProdutoComponent {
    this.listarProdutos(); 
   }
   listarProdutos(): void{
-    this._produtoService.getProdutos()
+    this._produtoService.getProdutos('id':)
     .subscribe(
       retornaProduto => {
         this.produtos = retornaProduto.map(
@@ -39,17 +39,17 @@ excluir(id: number){
     produto => {
       this.listarProdutos();
     },
-    err => {alert ("erro ao excluir")}
+    (    err): void => {alert ("erro ao excluir")}
     
       
-    } 
+  }
 }
 };
 
   //window.location.href = "/restrito/lista";
   this._router.navigate(["/restrito/lista"])
 
-}
+
 
 
 

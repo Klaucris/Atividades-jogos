@@ -16,20 +16,14 @@
     },
     {
       "id": "3",
-      "produto": "Jogo 3",
-      "descricao": "Descricao do jogo 3",
+      "produto" : "Jogo 3", 
+      "descricao" :"Descricao do jogo 3",
       "foto": "jogo3.PNG",
-      "preco": 500
-    },
-    {
-      "id": "996b"
-    },
-    {
-      "id": "4",
-      "produto": "Jogo 4",
-      "descricao": "Descricao do jogo 4",
-      "foto": "jogo4.png",
-      "preco": 600
+      "preco"  : 300
+
+    
+    
+    
     }
   ]
 }

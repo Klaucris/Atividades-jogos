@@ -1,4 +1,7 @@
 export class Produto{
+    map(arg0: (item: any) => any): Produto[] {
+      throw new Error('Method not implemented.');
+    }
     id: number = 0 ;
     produto: string = "";
     descricao: string = "";
