@@ -1,27 +1,78 @@
-# LojaGames
+# merge-stream
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+Merge (interleave) a bunch of streams.
 
-## Development server
+[![build status](https://secure.travis-ci.org/grncdr/merge-stream.svg?branch=master)](http://travis-ci.org/grncdr/merge-stream)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Synopsis
 
-## Code scaffolding
+```javascript
+var stream1 = new Stream();
+var stream2 = new Stream();
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+var merged = mergeStream(stream1, stream2);
 
-## Build
+var stream3 = new Stream();
+merged.add(stream3);
+merged.isEmpty();
+//=> false
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Description
 
-## Running unit tests
+This is adapted from [event-stream](https://github.com/dominictarr/event-stream) separated into a new module, using Streams3.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## API
 
-## Running end-to-end tests
+### `mergeStream`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Type: `function`
 
-## Further help
+Merges an arbitrary number of streams. Returns a merged stream.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### `merged.add`
+
+A method to dynamically add more sources to the stream. The argument supplied to `add` can be either a source or an array of sources.
+
+#### `merged.isEmpty`
+
+A method that tells you if the merged stream is empty.
+
+When a stream is "empty" (aka. no sources were added), it could not be returned to a gulp task.
+
+So, we could do something like this:
+
+```js
+stream = require('merge-stream')();
+// Something like a loop to add some streams to the merge stream
+// stream.add(streamA);
+// stream.add(streamB);
+return stream.isEmpty() ? null : stream;
+```
+
+## Gulp example
+
+An example use case for **merge-stream** is to combine parts of a task in a project's **gulpfile.js** like this:
+
+```js
+const gulp =          require('gulp');
+const htmlValidator = require('gulp-w3c-html-validator');
+const jsHint =        require('gulp-jshint');
+const mergeStream =   require('merge-stream');
+
+function lint() {
+  return mergeStream(
+    gulp.src('src/*.html')
+      .pipe(htmlValidator())
+      .pipe(htmlValidator.reporter()),
+    gulp.src('src/*.js')
+      .pipe(jsHint())
+      .pipe(jsHint.reporter())
+  );
+}
+gulp.task('lint', lint);
+```
+
+## License
+
+MIT
